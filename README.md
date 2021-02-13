@@ -8,3 +8,7 @@ This repository contains all code used in analysing and making predictions for K
 Code prefaced by 01 is used to clean data from valdatabase.dst.dk
 
 ## 02: ...
+
+
+# Contents
+**Valgdatabase_meta.csv**: Contains metadata used for cleaning valgdatabase data

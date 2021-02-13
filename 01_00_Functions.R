@@ -7,12 +7,37 @@
 #
 #
 # =================================
-# collect_one(args)
+# read_one(path)
 # =================================
-# This is a description
+# This function read the data from one election
 #
 # Arguments:
-# args:   This is the description for this argument.
+# path:   The path of data for this election
+read_one = function(path){
+  # Find all files on path
+  the_files = list.files(path)
+  
+  # Load all files
+  result = list()
+  for(i in the_files){
+    fname_i = paste(sep = "/", path, i)
+    suppressWarnings({
+      result[[i]] = read.csv2(fname_i)
+    })
+  }
+  
+  # Clean names
+  names(result) = gsub(".csv", "", names(result))
+  names(result) = gsub("_-", "", names(result))
+  
+  return(result)
+}
+
+
+
+
+
+
 
 
 

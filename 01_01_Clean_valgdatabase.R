@@ -11,3 +11,28 @@
 # =================================
 
 rm(list = ls())
+
+library(tidyverse)
+
+source("01_00_Functions.R")
+
+# =================================
+# Read_raw
+# =================================
+
+meta_data = read.csv2("Valgdatabase_meta.csv")
+
+elections = list()
+
+for(i in 1:NROW(meta_data)){
+  path = paste(
+    sep = "/",
+    "../Valgdatabase",
+    meta_data$Folder[i]
+  )
+  
+  elections[[i]] = read_one(path)
+  names(elections)[i] = meta_data$Folder[i]
+}
+
+
