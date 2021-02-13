@@ -4,11 +4,10 @@
 # Purpose           :   Contains custom functions pertaining to this project.
 #
 # Details:
-# Something about details
 #
 #
 # =================================
-# funkyFunction(args)
+# collect_one(args)
 # =================================
 # This is a description
 #
