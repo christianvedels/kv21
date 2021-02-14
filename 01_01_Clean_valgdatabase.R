@@ -33,6 +33,16 @@ for(i in 1:NROW(meta_data)){
   
   elections[[i]] = read_one(path)
   names(elections)[i] = meta_data$Folder[i]
+  attr(elections[[i]],"elec_str") = meta_data$Folder[i]
 }
 
+# =================================
+# Format valgdata
+# =================================
+for(i in 1:length(elections)){
+  elections[[i]]$Valgdata = clean_valgdata(
+    elections[[i]]$Valgdata,
+    attr(elections[[i]],"elec_str")
+  )
+}
 
