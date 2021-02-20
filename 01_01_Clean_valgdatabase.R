@@ -40,9 +40,16 @@ for(i in 1:NROW(meta_data)){
 # Format valgdata
 # =================================
 for(i in 1:length(elections)){
-  elections[[i]]$Valgdata = clean_valgdata(
-    elections[[i]]$Valgdata,
-    attr(elections[[i]],"elec_str")
+  elections[[i]] = clean_valgdata(
+    elections[[i]]
   )
+}
+
+# ============================
+# Make partinavn assoc. cloud
+# ============================
+# Make loop to find all parti names
+for(i in 1:length(elections)){
+  
 }
 
