@@ -24,9 +24,10 @@ personlige_stemmer = read.csv2("../personlige_stemmer.csv")
 
 personlige_stemmer %>% 
   filter(KandidatNavn == "Carl Valentin") %>% 
-  filter(Kommune.navn == "København") %>% 
-  select(KandidatNavn, Kommune.navn, Valgsted.navn, Stemmer) %>% 
+  # filter(Kommune.navn == "København") %>%
+  # select(KandidatNavn, Kommune.navn, Parti, ValgstedId, Valgsted.navn, Stemmer) %>% 
   mutate(
     pct_kbh = pretty_pct(Stemmer/sum(Stemmer)) 
   ) %>% 
-  arrange(-Stemmer)
+  group_by(StorKredsNr) %>% 
+  summarise(Stemmer = sum(Stemmer, na.rm = TRUE))
